@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+  background-color:#225252 ;
+}
+h1{
+  color:aquamarine ;
+}
+p{
+  color:darkcyan;
+}
+table{
+  color:rgb( 161, 173, 173);
+}
+#sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 15%;
+   background-color: rgba(0, 0, 0, 0.25);
+   min-width: 130px;
+}
+#sidebar ul{
+  vertical-align: middle;
+}
+#sidebar ul li {
+  list-style-type: none;
+   color: aquamarine;
+   padding: 10px;
+}
+#sidebar svg {
+  opacity: 0.5; /* Opacità dell'immagine al passaggio del mouse */
+  filter: brightness(80%); /* Luminosità dell'immagine al passaggio del mouse */
+  transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
+}
+
+#sidebar svg:hover {
+  opacity: 1; /* Opacità dell'immagine al passaggio del mouse */
+
+  filter: brightness(100%); /* Luminosità dell'immagine al passaggio del mouse */
+  transform: scale(1.2); /* aumenta le dimensioni del 20% */
+  transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
+}

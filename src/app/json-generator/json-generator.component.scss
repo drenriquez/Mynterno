@@ -1,0 +1,54 @@
+ngx-json-viewer{
+  --ngx-json-string : #c55818;
+  --ngx-json-number : #00ff6a;
+  --ngx-json-boolean : #003cff;
+  --ngx-json-date : #8400ff;
+  --ngx-json-array : #00b7ff;
+  --ngx-json-object : #0044ff;
+  --ngx-json-function : #cc00ff;
+  --ngx-json-null : #3700ff;
+  --ngx-json-null-bg : #00ffb3;
+  --ngx-json-undefined : #634b46;
+  --ngx-json-toggler : #ff2600;
+  --ngx-json-key : #ff2600;
+  --ngx-json-separator : #1a1d0d;
+  --ngx-json-value : #ff2600;
+  --ngx-json-undefined-key : #ff2600;
+  --ngx-json-font-family : arial;
+  --ngx-json-font-family : 16px;
+}
+p{
+  font-size: 30px;
+  font-weight: bold;
+  font-family:cursive ;
+  color:#10805e;
+}
+.window{
+  background-color: rgb(201, 214, 210);
+  padding: 20px;
+}
+.container {
+  display: flex;
+  position: relative;
+}
+mat-spinner{
+  position:absolute;
+  margin: 10px;
+  top: 5px;
+  left: 120px;
+}
+
+button{
+  width: 100px;
+  margin: 10px;
+}
+#save-button{
+  margin-left: 150px;
+  //left: 150px;
+}
+.mat-spinner-saving{
+  position:absolute;
+  margin: 10px;
+  top: -10px;
+  left: 480px;
+}

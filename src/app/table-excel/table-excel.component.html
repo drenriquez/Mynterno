@@ -1,0 +1,23 @@
+<div class="example-container mat-elevation-z8">
+  <!-- <button (click)="toggleSelectAll()" [(ngModel)]="selectAll">Salva righe selezionate</button> -->
+  <table>
+    <thead>
+      <tr>
+        <th class="table-checkbox-column"><mat-checkbox  color="warn" (change)="testSelect(0)" checked="true"/></th>
+        <th *ngFor="let col of columns">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of dataXlsx.slice(1); let i = index" [class.selected-row]="isSelected(i)">
+        <td class="table-checkbox-column"><mat-checkbox  color="warn" (change)="testSelect(i+1)" checked="true" /></td>
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</div>
+<br>
+<div class="container">
+<button mat-raised-button color="warn" (click)="saveSelectedRows()">Salva righe selezionate</button>
+<mat-spinner  diameter="30" color="warn" *ngIf="isLoading"></mat-spinner>
+</div>

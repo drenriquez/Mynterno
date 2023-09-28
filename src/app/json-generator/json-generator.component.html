@@ -1,0 +1,27 @@
+<p>json-generator</p>
+<div class="container">
+  <button mat-raised-button color="primary" (click)="getData()">show data</button>
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="getJsonSchema()">show Schema</button>
+  <br>
+  <br>
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="tablesGenerator()">Tables Genearator</button>
+  <mat-spinner  diameter="30" color="primary" *ngIf="isLoading"></mat-spinner>
+  </div>
+  <br>
+  <br>
+
+  <button id="save-button" mat-raised-button color="warn" (click)="saveTables()">Save JsonFiles</button>
+  <div class="mat-spinner-saving" >
+    <mat-spinner diameter="30" color="warn" *ngIf="saving"></mat-spinner>
+  </div>
+
+</div>
+<br>
+
+<!-- <textarea id="clipboard-example-textarea" cols="30" rows="10" [(ngModel)]="value"></textarea> -->
+<div class="window">
+  <app-table-json [dataJson]="tablesGenerated"></app-table-json>
+</div>

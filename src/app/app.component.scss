@@ -1,0 +1,105 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+  background-color:#0F1F1F ;
+}
+h1{
+  color:aquamarine ;
+}
+p{
+  color:darkcyan;
+}
+table{
+  color:rgb( 161, 173, 173);
+}
+#sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 10%;
+   background-color: rgba(0, 0, 0, 0.25);
+   min-width: 130px;
+  }
+  #sidebar ul{
+    vertical-align: middle;
+  }
+#sidebar ul li {
+  list-style-type: none;
+   color: aquamarine;
+   padding: 10px;
+  }
+#sidebar img:hover {
+  opacity: 0.5; /* Opacità dell'immagine al passaggio del mouse */
+  filter: brightness(80%); /* Luminosità dell'immagine al passaggio del mouse */
+  #sidebar img:hover {
+    opacity: 0.5;
+    filter: brightness(80%);
+    transform: scale(1.2); /* aumenta le dimensioni del 20% */
+    transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
+  }
+
+}
+#sidebar svg {
+  opacity: 0.5; /* Opacità dell'immagine al passaggio del mouse */
+  filter: brightness(80%); /* Luminosità dell'immagine al passaggio del mouse */
+  transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
+}
+
+#sidebar svg:hover {
+  opacity: 1; /* Opacità dell'immagine al passaggio del mouse */
+
+  filter: brightness(100%); /* Luminosità dell'immagine al passaggio del mouse */
+  transform: scale(1.2); /* aumenta le dimensioni del 20% */
+  transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
+}
+   /* Stili per il tag a */
+a {
+color: blue; /* colore del testo predefinito */
+text-decoration: none; /* rimuove il sottolineato predefinito */
+position: relative; /* imposta la posizione relativa */
+}
+
+/* Stili per la scritta al passaggio del mouse */
+a::before {
+  content: attr(data-title); /* visualizza il contenuto dell'attributo data-title */
+  position: absolute; /* imposta la posizione assoluta */
+  top: 0%; /* posiziona il testo sotto il tag a */
+  left: 200%; /* centra il testo orizzontalmente */
+  transform: translateX(-50%); /* centra il testo verticalmente */
+  padding: 5px; /* aggiunge spazio intorno al testo */
+  background-color: rgba(32, 32, 32, 0.7); /* imposta lo sfondo semi trasparente */
+  color: #fff; /* cambia il colore del testo */
+  font-size: 16px; /* imposta la dimensione del carattere */
+  font-weight: bold;
+  font-family:cursive ;
+  color:#10805e;
+  border-radius: 3px; /* arrotonda gli angoli del riquadro */
+  visibility: hidden; /* nasconde la scritta personalizzata */
+  opacity: 0; /* rende la scritta personalizzata trasparente */
+  transition: visibility 0s, opacity 0.5s ease-in-out; /* aggiunge un'animazione alla transizione */
+}
+
+/* Stili per la scritta al passaggio del mouse */
+a:hover::before {
+  visibility: visible; /* mostra la scritta personalizzata */
+  opacity: 1; /* rende la scritta personalizzata opaca */
+}
