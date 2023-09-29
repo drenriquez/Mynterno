@@ -5,7 +5,8 @@ const electronReload = require('electron-reloader');
 const { readRow, readSchema } = require('./services/reading_functions.js');
 const { create_folder_and_schema }= require('./services/create_folder.js');
 const { jsonGeneratorForTable } = require('./services/records_generator.js');
-const{ saveForSingleTable } = require('./services/saving_function.js')
+const{ saveForSingleTable } = require('./services/saving_function.js');
+const { generateAllPDFs }=require('./services/PDFgenerator.js');
 const fs = require('fs');
 
 let mainWindow;
@@ -111,5 +112,6 @@ ipcMain.on('PDFgenerator',async (event, dataExcel)=>{
   // .then((jsonDataTables) => {
   //   // Usa il file JSON come necessario
   //console.log(jsonData);
-  console.log(dataExcel)
+  generateAllPDFs(dataExcel);
+  console.log(dataExcel);
 })
