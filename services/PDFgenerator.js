@@ -26,7 +26,7 @@ async function generatePDF(data) {
       const campo3 = form.getTextField('Nome');//nome
       const campo4 = form.getTextField('Natoa a');//LUOGO DI NASCITA
       const campo5 = form.getTextField('undefined');//PROV
-      const campo6 = form.getTextField('il');//
+      const campo6 = form.getTextField('il');//data di nascita
       const campo7 = form.getRadioGroup('Sesso');
       const campo8 = form.getCheckBox('Malformazioni o lesioni arto superiore  NO');
       // ... (altri campi)
@@ -34,10 +34,10 @@ async function generatePDF(data) {
       campo1.setText(data[12]);
       //console.log("++++++++++++++++++++++++ TEST riga 35 ++++++++++++++++++++++++")
       campo2.setText(data[3]);
-      campo3.setText(data[4]);//Prov.
+      campo3.setText(data[4]);//NOME.
       campo4.setText(data[6]);//Luogo di nascita
-      campo5.setText('');//DATA
-      campo6.setText(data[5]);//N
+      campo5.setText('');//PROV
+      campo6.setText(data[5]);//data di nascita
       //campo7.select('M');// da attivare solo se è F
       //campo8.check();//se NO
       //campo8.uncheck()
@@ -46,14 +46,16 @@ async function generatePDF(data) {
       const pdfBytesWithFields = await pdfDoc.save();
       //console.log("++++++++++++++++++++++++ TEST riga 47 ++++++++++++++++++++++++")
   
-      const mainFolderName = `referti_del_${data[11]}`.replace(/\//g, '-');
+      //const mainFolderName = `referti_del_${data[11]}`.replace(/\//g, '-');
+      const mainFolderName = `${data[13]}`.replace(/\//g, '-');
+
       const subFolderName = `${data[3]}_${data[4]}`.replace(/\//g, '-');
   
       await fs.mkdir(path.join(PDFpath, mainFolderName), { recursive: true });
       await fs.mkdir(path.join(PDFpath, mainFolderName, subFolderName), { recursive: true });
   
       const outputPath = `${PDFpath}/${mainFolderName}/${subFolderName}/${subFolderName}_HANDGRIP.pdf`;
-      await fs.writeFile(outputPath, pdfBytesWithFields);
+      await fs.writeFile(outputPath, pdfBytesWithFields);       // ----->           salva il file  
       //console.log("++++++++++++++++++++++++ TEST riga 57 ++++++++++++++++++++++++")
   
       // PDF 2
@@ -73,16 +75,17 @@ async function generatePDF(data) {
       const campo6b = form2.getTextField('undefined');//NOME
       // ... (altri campi)
   
-      campo1b.setText(data[3]);
-      campo2b.setText(data[5]);
-      campo3b.setText('');//Prov.
-      campo4b.setText(data[6]);//Luogo di nascita
-      campo5b.setText(data[11]);//DATA
-      campo6b.setText(data[4]);//
+      campo1b.setText(` ${data[3]}`);
+      campo2b.setText(` ${data[5]}`);
+      campo3b.setText(``);//Prov.
+      campo4b.setText(` ${data[6]}`);//Luogo di nascita
+      campo5b.setText(` ${data[13]}`);//DATA
+      campo6b.setText(` ${data[4]}`);//nome
       // ...
   
       const pdfBytesWithFields2 = await pdfDoc2.save();
   
+      //const outputPath2 = `${PDFpath}/${mainFolderName}/${subFolderName}/${subFolderName}_SCHEDA_MEDICA.pdf`;
       const outputPath2 = `${PDFpath}/${mainFolderName}/${subFolderName}/${subFolderName}_SCHEDA_MEDICA.pdf`;
       await fs.writeFile(outputPath2, pdfBytesWithFields2);
   
